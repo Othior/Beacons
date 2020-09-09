@@ -1,38 +1,106 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ------------------------ Home ------------------------ */
+html{
+  overflow: hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
+  background: #41957a;;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+.link-register,.link-login,.title-link{
+  text-decoration-line: none;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.link-register,.link-login{
+  padding: 2rem;
+  font-size: 25px;
+}
+.link-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title-link{
+  font-size: 3em;
+  padding: 1rem;
+}
+main,#map-container{
+  margin: auto;
+  width: 80rem;
+  height: 40rem;
+}
+#map-container{
+  margin: auto;
+  max-width: 100%;
+  max-height: 40rem;
+  background: #41957a;;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  margin-top: 3rem;
+  background: #41957a;;
+  padding: 22px;
+  color: white;
+}
+/*---------------------------------------------------------*/
+/* --------------------- Register ------------------------ */
+.container-form-register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.title-form{
+  font-size: 3em;
+  padding-bottom: 2rem;
+}
+.title-block{
+  display: flex;
+  justify-content: center;
+}
+.rectangle-gauche,.rectangle-droit{
+  border-bottom: 1px solid #A5A5A5;
+}
+.form-register{
+  width: 50rem;
+  border-radius: 8px;
+  border: 1px solid #A5A5A5;
+}
+.input-pseudo,.input-firstname,.input-lastname,.input-email,.input-password,.input-confirm-password{
+  margin: 30px 0;
+}
+input{
+  width: 75%;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px solid #A5A5A5;
+  color: #41957a;;
+}
+.link-register-login{
+  padding-bottom: 2rem;
+}
+.btn-submit{
+  background: #41957a;;
+  color: white;
+  width: 30%;
+  border: none;
+}
+.input-submit{
+  padding-bottom: 1rem;
+}
+/*---------------------------------------------------------*/
+
+.container-form-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  padding-bottom: 6rem;
 }
