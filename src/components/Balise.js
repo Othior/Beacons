@@ -6,7 +6,7 @@ import mark from '../assets/Balise.png'
 
 const pointer = new L.Icon({
     iconUrl: mark,
-    iconSize: [50,50]
+    iconSize: [35,50]
 })
 
 function Balise(props){

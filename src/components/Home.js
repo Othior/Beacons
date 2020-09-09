@@ -7,12 +7,12 @@ export default function Home() {
     const [lat,setLat] = useState("");
     const [lon,setLon] = useState("");
 
-    let wacht = navigator.geolocation.watchPosition(function(e){
+    navigator.geolocation.watchPosition(function(e){
         setLat(e.coords.latitude)
         setLon(e.coords.longitude)
     })
     return (
-        <div className="container">
+        <>
         <header>
             <Link className="title-link" to="/">
                 Beacons Hunt
@@ -23,19 +23,20 @@ export default function Home() {
                 {/* <Link className="link-participant" to="/Participant"> Participant </Link> */}
             </div>     
         </header>
-        <p>
-            Bienvenu dans Beacons Hunt le but est très simple choisis un parcours et attrape ton téléphone et attrape toute les balises tout près de chez toi !!
-        </p>
-        <p>
-            Vous devez vous connecter pour commencer a joué
-        </p>
-        <main>
-
-            <div id="map">
-                <Maps lgla={[lat,lon]}/>
+            <div className="container">
+                <p>
+                    Bienvenu dans Beacons Hunt le but est très simple choisis un parcours et attrape ton téléphone et attrape toute les balises tout près de chez toi !!
+                </p>
+                <p>
+                    Vous devez vous connecter pour commencer a joué
+                </p>
+                <main>
+                    <div id="map">
+                        <Maps lgla={[lat,lon]}/>
+                    </div>
+                </main>
+                <Footer/>
             </div>
-        </main>
-        <Footer/>
-        </div>
+        </>
     )
 }

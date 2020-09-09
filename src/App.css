@@ -27,16 +27,13 @@ header{
   font-size: 3em;
   padding: 1rem;
 }
-/* main,#map-container{
-  margin: auto;
-  background:url("assets/street-map.jpg");
-  width: 80rem;
-  height: 40rem;
+/* .container{
+  height: 50rem;
 } */
 
 .leaflet-container{
   margin: auto;
-  width: 70%;
+  width: 85%;
   height: 40rem;
 }
 
@@ -104,4 +101,22 @@ input{
   align-items: center;
   height: 30rem;
   padding-bottom: 6rem;
+}
+@media screen and (min-width: 200px) and (max-width: 720px) {
+  html{
+    overflow:scroll;
+  }
+  
+  header{
+    flex-direction: column;
+  }
+  .container{
+    height: 50rem;
+  }
+  .leaflet-container{
+    height: 35rem;
+  }
+  footer{
+    display: none;
+  }
 }

@@ -2,6 +2,7 @@ import React, { createRef } from "react"
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import Axios from "axios";
 
 
 export default function Register(){
@@ -12,27 +13,49 @@ export default function Register(){
     const email = createRef();
     const password = createRef();
     const Cpassword = createRef();
+    const url = "https://localhost:44330/api/User";
+    
+    const registerUser = (ev) => {
+        console.log(pseudo.current.value);
+        console.log(firstname.current.value);
+        console.log(lastname.current.value);
+        console.log(email.current.value);
+        console.log(password.current.value);
 
-    // const registerUser = (ev) =>{
+        ev.preventDefault();
 
-    //     ev.preventDefault();
+        // check champ
+        // if(pseudo.current.value !== "" & firstname.value !== "" 
+        // & lastname.value !== "" & email.value !== "" & password.value !== "" & Cpassword.value !== ""){
+        //     return(
+        //         <p>Champ vide ! , Veuiller remplir les champs pour pouvoir continué(e)</p>
+        //     )
+        // }
 
-    //     // check champ
-    //     if(pseudo.value !== "" & firstname.value !== "" 
-    //     & lastname.value !== "" & email.value !== "" & password.value !== "" & Cpassword.value !== ""){
-    //         return(
-    //             <p>Champ vide ! , Veuiller remplir les champs pour pouvoir continué(e)</p>
-    //         )
-    //     }
-
-    //     // checked password is same
-    //     if(password.value !== Cpassword.value){
-    //         <p>Les mot de passe ne sont pas les mêmes ! , Veuiller remplir les champs pour pouvoir continué(e)s</p>
-    //     }
-    //     else{
-    //         // envoie db + renvoyer vers route login
-    //     }
-    // }
+        // checked password is same
+        if(password.value !== Cpassword.value){
+            return(
+            <p>Les mot de passe ne sont pas les mêmes ! , Veuiller remplir les champs pour pouvoir continué(e)s</p>
+            )
+        }
+        else{
+            console.log("yes");
+            
+            Axios.post(url,{
+                Pseudo : pseudo.current.value,
+                Firstname : firstname.current.value,
+                Lastname: lastname.current.value,
+                Email: email.current.value,
+                Password: password.current.value,
+              })
+              .then(function (response) {
+                console.log(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              })
+        }
+    }
 
 
     return(
@@ -42,7 +65,7 @@ export default function Register(){
                 <span className="rectangle-gauche"></span><h2 className="title-form">Register</h2><span className="rectangle-droit"></span>
             </div>
             <div className="container-form-register">
-                <form className="form-register">
+                <form onSubmit={(ev) => registerUser(ev)} className="form-register">
                     <div className="input-pseudo">
                         <label>Pseudo : </label><input type="text" ref={pseudo} required/>
                     </div>
