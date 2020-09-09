@@ -1,10 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Footer from "./Footer";
 import Maps from "./Maps";
 
 export default function Home() {
+    const [lat,setLat] = useState("");
+    const [lon,setLon] = useState("");
 
+    let wacht = navigator.geolocation.watchPosition(function(e){
+        setLat(e.coords.latitude)
+        setLon(e.coords.longitude)
+    })
     return (
         <div className="container">
         <header>
@@ -14,7 +20,7 @@ export default function Home() {
             <div className="link-item">
                 <Link className="link-register" to="/Register"> Register </Link>
                 <Link className="link-login" to="/Login"> Login </Link>
-                <Link className="link-participant" to="/Participant"> Participant </Link>
+                {/* <Link className="link-participant" to="/Participant"> Participant </Link> */}
             </div>     
         </header>
         <p>
@@ -25,9 +31,9 @@ export default function Home() {
         </p>
         <main>
 
-            {/* <div id="map">
-                <Maps/>
-            </div> */}
+            <div id="map">
+                <Maps lgla={[lat,lon]}/>
+            </div>
         </main>
         <Footer/>
         </div>

@@ -13,7 +13,6 @@ export default function Participant(){
 
     return(
         <div>
-            
             <p>LAT : {lat}</p>
             <p>LON : {lon}</p>
         </div>
