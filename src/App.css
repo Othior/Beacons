@@ -29,15 +29,16 @@ header{
 }
 main,#map-container{
   margin: auto;
+  background:url("assets/street-map.jpg");
   width: 80rem;
   height: 40rem;
 }
-#map-container{
+/* #map-container{
   margin: auto;
   max-width: 100%;
   max-height: 40rem;
   background: #41957a;;
-}
+} */
 
 footer{
   position: fixed;

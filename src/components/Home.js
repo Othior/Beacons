@@ -14,6 +14,7 @@ export default function Home() {
             <div className="link-item">
                 <Link className="link-register" to="/Register"> Register </Link>
                 <Link className="link-login" to="/Login"> Login </Link>
+                <Link className="link-participant" to="/Participant"> Participant </Link>
             </div>     
         </header>
         <p>
@@ -23,9 +24,10 @@ export default function Home() {
             Vous devez vous connecter pour commencer a joué
         </p>
         <main>
-            <div id="map">
+
+            {/* <div id="map">
                 <Maps/>
-            </div>
+            </div> */}
         </main>
         <Footer/>
         </div>
