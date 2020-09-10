@@ -31,18 +31,18 @@ function CourseParticipant(){
         .catch(function (error) {
             console.log(error);
         })
-        getBalise();
+        // getBalise();
     }
 
-    const getBalise = (e) =>{
-        Axios.get(url + "Balise")
-        .then(function (response){
-            setBalise(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-    }
+    // const getBalise = (e) =>{
+    //     Axios.get(url + "Balise")
+    //     .then(function (response){
+    //         setBalise(response.data);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     })
+    // }
 
     return(
         <>

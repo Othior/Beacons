@@ -171,6 +171,9 @@ input{
 
 /* mobile and tablette */
 @media screen and (min-width: 770px) and (max-width: 1024px) {
+  html{
+    overflow:scroll;
+  }
   .form-register{
     width: 40rem;
   }
@@ -218,6 +221,9 @@ input{
 
 }
 @media screen and (min-width: 410px) and (max-width: 540px) {
+  html{
+    overflow:scroll;
+  }
   .form-register{
     width: 23rem;
   }
