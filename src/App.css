@@ -46,6 +46,7 @@ footer{
   background: #41957a;;
   padding: 22px;
   color: white;
+
 }
 /*---------------------------------------------------------*/
 /* --------------------- Register ------------------------ */
@@ -141,7 +142,6 @@ input{
 }
 .block-create-course{
   padding: 3rem;
-  width: 15%;
 }
 .input-name-course,.input-btn-course,.input-display-course{
   padding-top:1rem;
@@ -170,7 +170,7 @@ input{
 /*---------------------------------------------------------*/
 
 /* mobile and tablette */
-@media screen and (min-width: 410px) and (max-width: 760px) {
+@media screen and (min-width: 410px) and (max-width: 770px) {
   html{
     overflow:scroll;
   }
@@ -188,12 +188,12 @@ input{
   }
   .block-create-course{
     padding-top: 0;
-    width: 80%;
+    width: 70%;
   }
   .block-create-course > h2{
     padding-top:0;
   }
-  .input-btn-course{
+  .input-btn-course,.input-display-course{
     width: 100%;
     margin: auto;
   }
@@ -203,5 +203,16 @@ input{
 
 }
 @media screen and (min-width: 200px) and (max-width: 410px) {
-
+  html{
+    overflow:scroll;
+  }
+  .container-course{
+    flex-direction: column;
+  }
+  .block-create-course > h2{
+    padding-top:0;
+  }
+  footer{
+    display: none;
+  }
 }
