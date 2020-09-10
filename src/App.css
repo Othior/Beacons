@@ -170,6 +170,15 @@ input{
 /*---------------------------------------------------------*/
 
 /* mobile and tablette */
+@media screen and (min-width: 770px) and (max-width: 1024px) {
+  .form-register{
+    width: 40rem;
+  }
+  footer{
+    display: none;
+  }
+}
+
 @media screen and (min-width: 410px) and (max-width: 770px) {
   html{
     overflow:scroll;
@@ -197,20 +206,52 @@ input{
     width: 100%;
     margin: auto;
   }
+  .choice-role{
+    flex-direction: column;
+  }
+  .form-register{
+    width: 30rem;
+  }
   footer{
     display: none;
   }
 
 }
+@media screen and (min-width: 410px) and (max-width: 540px) {
+  .form-register{
+    width: 23rem;
+  }
+  header{
+    flex-direction: column;
+  }
+  .choice-role{
+    flex-direction: column;
+  }
+  .choice-role>a{
+    padding: 7rem;
+  }
+}
 @media screen and (min-width: 200px) and (max-width: 410px) {
   html{
     overflow:scroll;
+  }
+  header{
+    flex-direction: column;
   }
   .container-course{
     flex-direction: column;
   }
   .block-create-course > h2{
     padding-top:0;
+  }
+  .form-register{
+    width: 20rem;
+  }
+  .choice-role{
+    flex-direction: column;
+  }
+  .choice-role>a{
+    padding: 7rem;
   }
   footer{
     display: none;
