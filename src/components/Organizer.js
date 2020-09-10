@@ -1,10 +1,10 @@
-import React, { createRef } from "react"
-
+import React from "react"
 
 export default function Organizer(){
+    
     return(
         <div>
-
+            
         </div>
     )
 }

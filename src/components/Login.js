@@ -1,7 +1,8 @@
-import React, { createRef } from "react"
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React, { createRef, useState, useEffect } from "react"
+import { BrowserRouter as  Router, Route, Switch,Link } from "react-router-dom";
 import Header from "./Header"
 import Footer from "./Footer"
+import Axios from "axios";
 
 
 export default function Login(){
@@ -9,11 +10,29 @@ export default function Login(){
     const pseudo = createRef();
     const password = createRef();
 
-    const verificationUser = () =>{
+    const [pseudoDb,setPseudoDb] = useState("");
+    const [passwdDb,setPasswdDb] = useState("");
+    const [arrayDb,setArrayDb] = useState([]);
+
+    const url = "https://localhost:44330/api/User";
+
+    const verificationUser = (e) =>{
+        e.preventDefault();
         
         // si le mot de passe n'est pas le meme que dans la db ne fonction pas 
 
         // sinon connection
+        console.log(pseudo.current.value);
+        console.log(password.current.value);
+
+        Axios.get(url)
+          .then(function (response) {
+            console.log(response.data);
+            // setArrayDb(response.data)
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
     }
 
     return(
@@ -23,7 +42,7 @@ export default function Login(){
                 <span className="rectangle-gauche"></span><h2 className="title-form">Login</h2><span className="rectangle-droit"></span>
             </div>
             <div className="container-form-login">
-                <form className="form-register" onSubmit={verificationUser}>
+                <form className="form-register" onSubmit={(e) => verificationUser(e)}>
                     <div className="input-pseudo">
                         <label>Pseudo : </label><input type="text" ref={pseudo} required/>
                     </div>

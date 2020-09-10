@@ -57,7 +57,7 @@ footer{
 }
 .title-form{
   font-size: 3em;
-  padding-bottom: 2rem;
+  margin: 30px;
 }
 .title-block{
   display: flex;
@@ -71,8 +71,14 @@ footer{
   border-radius: 8px;
   border: 1px solid #A5A5A5;
 }
+.form-register div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
 .input-pseudo,.input-firstname,.input-lastname,.input-email,.input-password,.input-confirm-password{
-  margin: 30px 0;
+  margin: 20px 0;
 }
 input{
   width: 75%;
@@ -102,11 +108,72 @@ input{
   height: 30rem;
   padding-bottom: 6rem;
 }
-@media screen and (min-width: 200px) and (max-width: 760px) {
+/*---------------------- choice-role ----------------------*/
+.choice-role{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 49rem;
+  /* padding:  10rem; */
+}
+.choice-role > a {
+  text-decoration:none;
+  background: #41957a;
+  padding: 10rem;
+  color: white;
+}
+
+/*---------------------------------------------------------*/
+
+/*------------------------- Course ------------------------*/
+
+.container-course{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2rem;
+  height: 45rem;
+}
+
+.block-create-course > h2{
+  margin: 0;
+  padding-top: 2rem;
+}
+.block-create-course{
+  padding: 3rem;
+  width: 15%;
+}
+.input-name-course,.input-btn-course,.input-display-course{
+  padding-top:1rem;
+}
+.input-btn-course{
+  width: 50%;
+  margin: auto;
+}
+.input-display-course{
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+}
+.input-display-course > input,.input-btn-course > input{
+  background: #41957a;
+  color: white;
+  border: none;
+}
+
+.Course-name{
+  background: rgb(209, 209, 209);
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+/*---------------------------------------------------------*/
+
+/* mobile and tablette */
+@media screen and (min-width: 410px) and (max-width: 760px) {
   html{
     overflow:scroll;
   }
-  
   header{
     flex-direction: column;
   }
@@ -116,7 +183,25 @@ input{
   .leaflet-container{
     height: 35rem;
   }
+  .container-course{
+    flex-direction: column;
+  }
+  .block-create-course{
+    padding-top: 0;
+    width: 80%;
+  }
+  .block-create-course > h2{
+    padding-top:0;
+  }
+  .input-btn-course{
+    width: 100%;
+    margin: auto;
+  }
   footer{
     display: none;
   }
+
+}
+@media screen and (min-width: 200px) and (max-width: 410px) {
+
 }

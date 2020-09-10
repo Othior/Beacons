@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Footer from "./Footer";
 import Maps from "./Maps";
+import Balise from "./Balise";
 
 export default function Home() {
     const [lat,setLat] = useState("");
@@ -11,6 +12,8 @@ export default function Home() {
         setLat(e.coords.latitude)
         setLon(e.coords.longitude)
     })
+
+    
     return (
         <>
         <header>
@@ -20,19 +23,20 @@ export default function Home() {
             <div className="link-item">
                 <Link className="link-register" to="/Register"> Register </Link>
                 <Link className="link-login" to="/Login"> Login </Link>
-                {/* <Link className="link-participant" to="/Participant"> Participant </Link> */}
             </div>     
         </header>
             <div className="container">
                 <p>
-                    Bienvenu dans Beacons Hunt le but est très simple choisis un parcours et attrape ton téléphone et attrape toute les balises tout près de chez toi !!
+                    Bienvenue dans Beacons Hunt. Le but est très simple : choisis un parcours, attrape ton téléphone et trouve toutes les balises près de chez toi !!
                 </p>
                 <p>
-                    Vous devez vous connecter pour commencer a joué
+                    Vous devez vous connecter pour commencer à jouer
                 </p>
                 <main>
                     <div id="map">
-                        <Maps lgla={[lat,lon]}/>
+                        <Maps lgla={[lat,lon]}>
+                            
+                        </Maps>
                     </div>
                 </main>
                 <Footer/>

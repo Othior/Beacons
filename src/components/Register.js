@@ -16,21 +16,7 @@ export default function Register(){
     const url = "https://localhost:44330/api/User";
     
     const registerUser = (ev) => {
-        console.log(pseudo.current.value);
-        console.log(firstname.current.value);
-        console.log(lastname.current.value);
-        console.log(email.current.value);
-        console.log(password.current.value);
-
         ev.preventDefault();
-
-        // check champ
-        // if(pseudo.current.value !== "" & firstname.value !== "" 
-        // & lastname.value !== "" & email.value !== "" & password.value !== "" & Cpassword.value !== ""){
-        //     return(
-        //         <p>Champ vide ! , Veuiller remplir les champs pour pouvoir continué(e)</p>
-        //     )
-        // }
 
         // checked password is same
         if(password.value !== Cpassword.value){
@@ -39,7 +25,6 @@ export default function Register(){
             )
         }
         else{
-            console.log("yes");
             
             Axios.post(url,{
                 Pseudo : pseudo.current.value,
@@ -49,7 +34,7 @@ export default function Register(){
                 Password: password.current.value,
               })
               .then(function (response) {
-                console.log(response.data);
+                console.log(response);
               })
               .catch(function (error) {
                 console.log(error);

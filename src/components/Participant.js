@@ -1,4 +1,4 @@
-import React, { createRef, useState } from "react"
+import React, {  useState } from "react"
 
 
 export default function Participant(){
@@ -6,7 +6,7 @@ export default function Participant(){
     const [lat,setLat] = useState("");
     const [lon,setLon] = useState("");
 
-    let wacht = navigator.geolocation.watchPosition(function(e){
+    navigator.geolocation.watchPosition(function(e){
         setLat(e.coords.latitude)
         setLon(e.coords.longitude)
     })
