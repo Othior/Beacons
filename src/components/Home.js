@@ -34,10 +34,10 @@ export default function Home() {
         </header>
             <div className="container">
                 <p>
-                    Bienvenue dans Beacons Hunt. Le but est très simple : choisis un parcours, attrape ton téléphone et trouve toutes les balises près de chez toi !!
+                    Welcome to Beacons Hunt. The goal is very simple: choose a Course, grab your phone and find all the beacons near you !!
                 </p>
                 <p>
-                    Vous devez vous connecter pour commencer à jouer
+                    You must log in to start playing
                 </p>
                 <main>
                     <div id="map">

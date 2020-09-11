@@ -48,7 +48,7 @@ function CourseParticipant(){
         <Header/>
         <div className="container-course">
             <div className="block-create-course">
-                <h2> Les Parcours </h2>
+                <h2> The Courses </h2>
                 <div className="block-course-api">
                     <div className="input-display-course">
                         <input type="button" onClick={(e) => getParcours(e)} value="Affiche les Parcours"/> 

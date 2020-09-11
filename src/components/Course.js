@@ -72,16 +72,16 @@ function Course() {
             <Header />
             <div className="container-course">
                 <div className="block-create-course">
-                    <h2>Mes Parcours</h2>
+                    <h2>My Courses</h2>
                     <form onSubmit={(e) => sendDbBeacons(e)}>
                         <div className="input-name-course">
-                            <label>Nom du Parcours :</label><input ref={nameCourse} type="text" />
+                            <label>Name Course :</label><input ref={nameCourse} type="text" />
                         </div>
                         <div className="input-btn-course">
                             <input ref={btnSubmit} type="submit" value="add Parcours" />
                         </div>
                         <div className="input-btn-course">
-                            <input type="button" onClick={(e) => postBalise(e)} value="send Balise" />
+                            <input type="button" onClick={(e) => postBalise(e)} value="send Beacons" />
                         </div>
                     </form>
                 </div>
