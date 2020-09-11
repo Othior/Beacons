@@ -26,7 +26,7 @@ export default function Home() {
                 {
                     localStorage.getItem("UserId") ? <Logout /> :<div>
                         <Link className="link-register" to="/Register"> Register </Link>
-                        <Link className="link-login" to="/Login"> Login </Link>)
+                        <Link className="link-login" to="/Login"> Login </Link>
                     </div>
                 }
 
