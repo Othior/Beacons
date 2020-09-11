@@ -7,8 +7,8 @@ import Participant from "./components/Participant";
 import Organizer from "./components/Organizer";
 import Choicerole from './components/Choicerole';
 import Course from './components/Course';
-import './App.css';
 import CourseParticipant from './components/Courseparticipant';
+import './App.css';
 
 function App() {
   return (

@@ -9,20 +9,14 @@ export default function Login(){
     
     const pseudo = createRef();
     const password = createRef();
-
-    const [pseudoDb,setPseudoDb] = useState("");
-    const [passwdDb,setPasswdDb] = useState("");
     const [arrayDb,setArrayDb] = useState([]);
     const history = useHistory();
 
     const url = "https://localhost:44330/api/User";
 
-
-
     useEffect (() => {
         Axios.get(url)
           .then(function (response) {
-            console.log(response.data)
             setArrayDb(response.data)
           })
           .catch(function (error) {
@@ -35,13 +29,13 @@ export default function Login(){
         
         arrayDb.forEach(element => {
             if(element.Pseudo === pseudo.current.value & element.Password === password.current.value){
-                console.log("vous etes login !!!");
                 localStorage.setItem("UserId",element.Id);
                 localStorage.setItem("Pseudo",element.Pseudo);
                 history.push("/Choice-Role");
             }
         });
     }
+
     return(
         <div>
             <Header/>
@@ -57,10 +51,10 @@ export default function Login(){
                         <label>Password : </label><input type="password"  ref={password} required/>
                     </div>
                     <div className="input-submit">
-                        <input className="btn-submit" type="submit" value="s'enregistrer"/>
+                        <input className="btn-submit" type="submit" value="Login"/>
                     </div>
                     <div className="link-register-login">
-                        <Link to="/Register">Pas encore de compte ? s'enregistrer</Link>
+                        <Link to="/Register">You not have account ? Register </Link>
                     </div>
                 </form>
             </div>

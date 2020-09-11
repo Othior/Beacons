@@ -46,6 +46,7 @@ function Course() {
             .catch(function (error) {
                 console.log(error);
             })
+            postBalise();
     }
 
     const postBalise = () => {
@@ -80,9 +81,9 @@ function Course() {
                         <div className="input-btn-course">
                             <input ref={btnSubmit} type="submit" value="add Parcours" />
                         </div>
-                        <div className="input-btn-course">
+                        {/* <div className="input-btn-course">
                             <input type="button" onClick={(e) => postBalise(e)} value="send Beacons" />
-                        </div>
+                        </div> */}
                     </form>
                 </div>
                 <Maps clickBalise={(e) => clickMap(e)} lgla={[lat, lon]}>

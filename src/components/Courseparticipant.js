@@ -34,7 +34,6 @@ function CourseParticipant(){
         e.preventDefault();
         Axios.get(url + "Balise")
         .then(function (response){
-            console.log(response.data);
             setBalise(response.data);
         })
         .catch(function (error) {
@@ -50,9 +49,9 @@ function CourseParticipant(){
             <div className="block-create-course">
                 <h2> The Courses </h2>
                 <div className="block-course-api">
-                    <div className="input-display-course">
+                    {/* <div className="input-display-course">
                         <input type="button" onClick={(e) => getParcours(e)} value="Affiche les Parcours"/> 
-                    </div>
+                    </div> */}
                     {course.map((item,index)=>(
                         <p className="Course-name" key={index}>{item.Name}</p>
                     ))}

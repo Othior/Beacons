@@ -69,10 +69,10 @@ export default function Register(){
                         <label>Confirm Password : </label><input type="password"  ref={Cpassword} required/>
                     </div>
                     <div className="input-submit">
-                        <input className="btn-submit" type="submit" value="s'enregistrer"/>
+                        <input className="btn-submit" type="submit" value="Register"/>
                     </div>
                     <div className="link-register-login">
-                        <Link to="/Login">Déjà un compte ? se connecter</Link>
+                        <Link to="/Login">You have an account ? Login</Link>
                     </div>
                 </form>
             </div>
