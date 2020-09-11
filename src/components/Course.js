@@ -1,4 +1,5 @@
 import React, { createRef, useState } from "react"
+import { BrowserRouter as Router, Route, Switch, Link ,Redirect} from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Maps from "./Maps";
@@ -11,8 +12,6 @@ function Course() {
     const [lat, setLat] = useState("");
     const [lon, setLon] = useState("");
     const [balise, setBalise] = useState([]);
-    const [course, setCourse] = useState([]);
-
 
     const nameCourse = createRef();
     const btnSubmit = createRef();
@@ -27,26 +26,10 @@ function Course() {
         console.log("Lat : ", e.latlng.lat);
         console.log("Lng :", e.latlng.lng);
         console.log("-------------------");
-        // setBalise(old => [...old, {
-        //     lat: e.latlng.lat,
-        //     lon: e.latlng.lng
-        // }])
         setBalise([...balise, {
             lat: e.latlng.lat,
             lon: e.latlng.lng
         }])
-        // Axios.post(url + "/Course",{
-        //     Lat : e.latlng.lat,
-        //     Lon : e.latlng.lng,
-        //     IsFind: false,
-        //     ParticipantId:1,
-        //   })
-        //   .then(function (response) {
-        //     console.log(response.data);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   })
     }
 
     const sendDbBeacons = (e) => {
@@ -55,8 +38,7 @@ function Course() {
 
         Axios.post(url + "/Course", {
             Name: nameCourse.current.value,
-            OrganizerId: 1,
-            BaliseId: 3
+            OrganizerId: 1
         })
             .then(function (response) {
                 console.log(response.data);
@@ -66,10 +48,27 @@ function Course() {
             })
     }
 
-
+    const postBalise = () => {
+        balise.forEach(element => {
+            Axios.post(url + "/Balise",{
+                    Lat : element.lat,
+                    Lon : element.lon,
+                    IsFind: false,
+                    CourseId:5,
+                  })
+                  .then(function (response) {
+                    console.log(response.data);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  })
+        });
+    }
 
     return (
         <>
+        
+            { localStorage.getItem("UserId") ? "" : <Redirect to="/Login"/> }
             <Header />
             <div className="container-course">
                 <div className="block-create-course">
@@ -80,6 +79,9 @@ function Course() {
                         </div>
                         <div className="input-btn-course">
                             <input ref={btnSubmit} type="submit" value="add Parcours" />
+                        </div>
+                        <div className="input-btn-course">
+                            <input type="button" onClick={(e) => postBalise(e)} value="send Balise" />
                         </div>
                     </form>
                 </div>

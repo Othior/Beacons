@@ -25,7 +25,6 @@ export default function Register(){
             )
         }
         else{
-            
             Axios.post(url,{
                 Pseudo : pseudo.current.value,
                 Firstname : firstname.current.value,

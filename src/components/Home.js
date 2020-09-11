@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Footer from "./Footer";
 import Maps from "./Maps";
 import Balise from "./Balise";
+import Logout from "./Logout";
 
 export default function Home() {
     const [lat,setLat] = useState("");
@@ -21,8 +22,14 @@ export default function Home() {
                 Beacons Hunt
             </Link>
             <div className="link-item">
-                <Link className="link-register" to="/Register"> Register </Link>
-                <Link className="link-login" to="/Login"> Login </Link>
+                
+                {
+                    localStorage.getItem("UserId") ? <Logout /> :<div>
+                        <Link className="link-register" to="/Register"> Register </Link>
+                        <Link className="link-login" to="/Login"> Login </Link>)
+                    </div>
+                }
+
             </div>     
         </header>
             <div className="container">

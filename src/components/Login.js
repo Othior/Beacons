@@ -1,5 +1,5 @@
 import React, { createRef, useState, useEffect } from "react"
-import { BrowserRouter as  Router, Route, Switch,Link } from "react-router-dom";
+import { BrowserRouter as  Router, Route, Switch,Link, Redirect, useHistory } from "react-router-dom";
 import Header from "./Header"
 import Footer from "./Footer"
 import Axios from "axios";
@@ -13,28 +13,35 @@ export default function Login(){
     const [pseudoDb,setPseudoDb] = useState("");
     const [passwdDb,setPasswdDb] = useState("");
     const [arrayDb,setArrayDb] = useState([]);
+    const history = useHistory();
 
     const url = "https://localhost:44330/api/User";
 
-    const verificationUser = (e) =>{
-        e.preventDefault();
-        
-        // si le mot de passe n'est pas le meme que dans la db ne fonction pas 
 
-        // sinon connection
-        console.log(pseudo.current.value);
-        console.log(password.current.value);
 
+    useEffect (() => {
         Axios.get(url)
           .then(function (response) {
-            console.log(response.data);
-            // setArrayDb(response.data)
+            console.log(response.data)
+            setArrayDb(response.data)
           })
           .catch(function (error) {
             console.log(error);
           })
-    }
+    },[])
 
+    const verificationUser = (e) =>{
+        e.preventDefault();
+        
+        arrayDb.forEach(element => {
+            if(element.Pseudo === pseudo.current.value & element.Password === password.current.value){
+                console.log("vous etes login !!!");
+                localStorage.setItem("UserId",element.Id);
+                localStorage.setItem("Pseudo",element.Pseudo);
+                history.push("/Choice-Role");
+            }
+        });
+    }
     return(
         <div>
             <Header/>

@@ -1,9 +1,10 @@
-import React, { createRef,useState } from "react"
+import React, { createRef,useEffect,useState } from "react"
 import Header from "./Header";
 import Footer from "./Footer";
 import Maps from "./Maps";
 import Balise from "./Balise";
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 
 function CourseParticipant(){
@@ -12,9 +13,6 @@ function CourseParticipant(){
     const [balise,setBalise] = useState([]);
     const [course,setCourse] = useState([]);
 
-
-    const nameCourse = createRef();
-    const btnSubmit = createRef();
     const url = "https://localhost:44330/api/";
 
     navigator.geolocation.watchPosition(function(e){
@@ -22,8 +20,7 @@ function CourseParticipant(){
         setLon(e.coords.longitude);
     })
 
-    const getParcours = (e) => {
-        e.preventDefault();
+    useEffect(()=>{
         Axios.get(url+"Course")
         .then(function (response){
             setCourse(response.data);
@@ -31,21 +28,23 @@ function CourseParticipant(){
         .catch(function (error) {
             console.log(error);
         })
-        // getBalise();
+    },[])
+    
+    const getParcours = (e) => {
+        e.preventDefault();
+        Axios.get(url + "Balise")
+        .then(function (response){
+            console.log(response.data);
+            setBalise(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
-
-    // const getBalise = (e) =>{
-    //     Axios.get(url + "Balise")
-    //     .then(function (response){
-    //         setBalise(response.data);
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     })
-    // }
 
     return(
         <>
+        { localStorage.getItem("UserId") ? "" : <Redirect to="/Login"/> }
         <Header/>
         <div className="container-course">
             <div className="block-create-course">

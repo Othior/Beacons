@@ -10,7 +10,6 @@ const pointer = new L.Icon({
 })
 
 function Balise(props) {
-    console.log("CHECK:", props.lgla);
     return (
         <Marker icon={pointer} position={props.lgla}>
             <Popup>{props.text}</Popup>
